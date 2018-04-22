@@ -10,6 +10,6 @@ import java.util.List;
 
 
 @Repository
-public interface JpaRecruiterRepository extends JpaRepository<Recruiter, Long> {
+public interface JpaRecruiterRepository extends RecruiterRepository, JpaRepository<Recruiter, Long> {
 	List<Recruiter> findAll();
 }
