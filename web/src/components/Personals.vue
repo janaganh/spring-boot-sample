@@ -54,7 +54,7 @@ export default {
       axios
         .get('/recruitment/recruiters/' + this.recruiterId + '/calculate')
         .then(response => {
-          this.commission = response.data
+          this.commission = response.data.commission
         }
         )
     }

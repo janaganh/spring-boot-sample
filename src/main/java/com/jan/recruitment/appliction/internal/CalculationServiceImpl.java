@@ -29,7 +29,6 @@ public class CalculationServiceImpl implements CalculationService{
 	public double calculateCommission(long recruiterId) {
 
 		final CalculationHelper calculationHelper = new CalculationHelper();
-
 		LocalDate today = LocalDate.now();
 		Date fromDate = java.sql.Date.valueOf(today.withDayOfMonth(1));
 		Date toDate = java.sql.Date.valueOf(today.withDayOfMonth(today.lengthOfMonth()));
