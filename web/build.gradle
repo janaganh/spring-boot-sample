@@ -1,0 +1,24 @@
+plugins {
+  id "com.moowork.node" version "1.2.0"
+}
+
+apply plugin: 'base'
+apply plugin: 'com.moowork.node'
+
+node {
+  download = true
+}
+
+task run_prod_build(type: NpmTask, dependsOn: 'npmInstall') {
+  args = ['run', 'build']
+}
+
+task prod_build(type: Copy, dependsOn: 'run_prod_build'){
+  from 'dist'
+  into '../build/resources/main/static'
+}
+
+clean {
+  delete "dist"
+}
+
