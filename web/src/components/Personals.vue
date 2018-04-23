@@ -74,7 +74,7 @@ export default {
 }
 
 label {
-  padding: 10px;
-  font-size: 2em;
+  font-size: 1.5em;
+  float: right;
 }
 </style>
