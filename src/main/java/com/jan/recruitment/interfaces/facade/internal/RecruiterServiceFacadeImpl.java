@@ -1,7 +1,8 @@
 package com.jan.recruitment.interfaces.facade.internal;
 
+import com.jan.recruitment.appliction.CalculationService;
 import com.jan.recruitment.domain.model.Recruiter;
-import com.jan.recruitment.domain.model.RecruiterRepository;
+import com.jan.recruitment.infrastructure.persistence.jpa.JpaRecruitmentTransactionRepository;
 import com.jan.recruitment.interfaces.facade.RecruitmentServiceFacade;
 import com.jan.recruitment.interfaces.facade.dto.RecruiterDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,16 @@ import java.util.List;
 public class RecruiterServiceFacadeImpl implements RecruitmentServiceFacade {
 
 	@Autowired
+	private CalculationService calculationService;
+
+	@Autowired
 	private JpaRecruiterRepository recruitmentRepository;
+
+	@Autowired
+	private JpaRecruitmentTransactionRepository recruitmentTransactionRepository;
+
+	@Autowired
+	private JpaRecruiterRepository recruiterRepository;
 
 	@Override
 	public List<RecruiterDto> listAllRecruiters() {
@@ -24,4 +34,10 @@ public class RecruiterServiceFacadeImpl implements RecruitmentServiceFacade {
 		RecruiterDtoAssembler recruiterDtoAssembler = new RecruiterDtoAssembler();
 		return recruiterDtoAssembler.toDtoList(recruiterList);
 	}
+
+	@Override
+	public double calculateCommission(final long recruiterId) {
+		return  calculationService.calculateCommission(recruiterId);
+	}
+
 }

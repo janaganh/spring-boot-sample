@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface RecruitmentServiceFacade {
 	List<RecruiterDto> listAllRecruiters();
+
+	double calculateCommission(long recruiterId);
 }
