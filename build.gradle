@@ -64,4 +64,7 @@ flyway {
 	//locations= "n/resources/db/postgresql/migration"
 }
 
+task frontendBuild(dependsOn: 'web:prod_build'){}
+
+bootJar.dependsOn 'frontendBuild'
 //println "$projectDir/src/main/resources/db/postgresql/migration"
