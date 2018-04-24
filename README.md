@@ -17,3 +17,8 @@ Also note you can clean the database and again reinitialize
    gradlew flywayClean -i
    gradlew flywayMigrate -i
    
+Developing vue with js
+if make any changes to web folder, run this command to update the spring boot app
+  gradlew prod_build  
+   
+   
