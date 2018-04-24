@@ -1,6 +1,9 @@
 package com.jan.recruitment.config;
 
 
+
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -11,6 +14,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 @Profile("test")
 public class TestConfiguration {
 
@@ -24,4 +28,5 @@ public class TestConfiguration {
 
 		return dataSource;
 	}
+
 }

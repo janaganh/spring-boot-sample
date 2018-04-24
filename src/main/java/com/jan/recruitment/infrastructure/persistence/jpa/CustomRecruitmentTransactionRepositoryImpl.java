@@ -1,6 +1,5 @@
 package com.jan.recruitment.infrastructure.persistence.jpa;
 
-import com.jan.recruitment.domain.model.Recruiter;
 import com.jan.recruitment.domain.model.RecruitmentTransaction;
 import com.jan.recruitment.domain.model.RecruitmentTransactionRepository;
 import org.springframework.stereotype.Repository;
@@ -26,7 +25,7 @@ public class CustomRecruitmentTransactionRepositoryImpl implements RecruitmentTr
 	EntityManager entityManager;
 
 	@Override
-	public List<RecruitmentTransaction> findByRecruiter(final long recruiterId, Date fromDate, Date toDate) {
+	public List<RecruitmentTransaction> findByRecruiter(final long recruiterId, final Date fromDate, final Date toDate) {
 		List<RecruitmentTransaction> recruitmentTransactionList = new ArrayList<>();
 		try {
 			recruitmentTransactionList = entityManager.createNamedQuery(
@@ -43,7 +42,7 @@ public class CustomRecruitmentTransactionRepositoryImpl implements RecruitmentTr
 	}
 
 	@Override
-	public long countByProfession(long transactionId, long professionId) {
+	public long countByProfession(final long transactionId, final long professionId) {
 		Long result = 0l;
 		try {
 			result = entityManager.createNamedQuery("RecruitmentTransaction.countByProfession"

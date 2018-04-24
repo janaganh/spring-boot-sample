@@ -1,7 +1,6 @@
 package com.jan.recruitment.interfaces.facade.internal;
 
 import com.jan.recruitment.appliction.CalculationService;
-import com.jan.recruitment.domain.model.Personal;
 import com.jan.recruitment.domain.model.Recruiter;
 import com.jan.recruitment.domain.model.RecruitmentTransaction;
 import com.jan.recruitment.infrastructure.persistence.jpa.JpaRecruitmentTransactionRepository;
@@ -41,7 +40,7 @@ public class RecruiterServiceFacadeImpl implements RecruitmentServiceFacade {
 	}
 
 	@Override
-	public List<PersonalDto> listPersonal(long recruiterId) {
+	public List<PersonalDto> listPersonal(final long recruiterId) {
 		LocalDate today = LocalDate.now();
 		Date fromDate = java.sql.Date.valueOf(today.withDayOfMonth(1));
 		Date toDate = java.sql.Date.valueOf(today.withDayOfMonth(today.lengthOfMonth()));

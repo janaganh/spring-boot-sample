@@ -6,9 +6,6 @@ import com.jan.recruitment.interfaces.facade.dto.RecruiterDto;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Created by jhe on 4/21/2018.
- */
 public class RecruiterDtoAssembler {
 	RecruiterDto toDto(final Recruiter recruiter) {
 		return new RecruiterDto(recruiter.getId(), recruiter.getName());

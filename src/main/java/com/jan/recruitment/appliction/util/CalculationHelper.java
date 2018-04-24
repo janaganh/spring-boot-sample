@@ -2,9 +2,10 @@ package com.jan.recruitment.appliction.util;
 
 import java.math.BigDecimal;
 
-/**
- * Created by jhe on 4/23/2018.
+/*
+  helper class for handling decimals
  */
+
 public final class CalculationHelper {
 	double amount = 0;
 

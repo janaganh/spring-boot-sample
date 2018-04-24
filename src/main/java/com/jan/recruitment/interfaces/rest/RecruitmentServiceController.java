@@ -1,6 +1,5 @@
 package com.jan.recruitment.interfaces.rest;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.jan.recruitment.interfaces.facade.RecruitmentServiceFacade;
 import com.jan.recruitment.interfaces.facade.dto.PersonalDto;
 import com.jan.recruitment.interfaces.facade.dto.RecruiterDto;
@@ -18,9 +17,9 @@ import java.util.Map;
 @RequestMapping("/recruitment/")
 public class RecruitmentServiceController {
 
+	
 	@Autowired
 	private RecruitmentServiceFacade recruitmentServiceFacade;
-
 
 
 	@RequestMapping(method = RequestMethod.GET,
@@ -32,14 +31,14 @@ public class RecruitmentServiceController {
 
 	@RequestMapping(method = RequestMethod.GET,
 			value = "/recruiters/{id}/personals")
-	public List<PersonalDto> listPersonal(@PathVariable("id") long id) {
+	public List<PersonalDto> listPersonal(@PathVariable("id")final long id) {
 		List<PersonalDto> personalDtoList = recruitmentServiceFacade.listPersonal(id);
 		return personalDtoList;
 	}
 
 	@RequestMapping(method = RequestMethod.GET,
 			value = "/recruiters/{id}/calculate")
-	public Map<String, Object> calculateCommision(@PathVariable("id") long id) {
+	public Map<String, Object> calculateCommission(@PathVariable("id")final long id) {
 		Double commission = recruitmentServiceFacade.calculateCommission(id);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("commission", commission);

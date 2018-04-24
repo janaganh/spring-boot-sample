@@ -6,27 +6,33 @@ import com.jan.recruitment.domain.model.Commission;
 import com.jan.recruitment.domain.model.RecruitmentTransaction;
 import com.jan.recruitment.infrastructure.persistence.jpa.JpaCommissionRepository;
 import com.jan.recruitment.infrastructure.persistence.jpa.JpaRecruitmentTransactionRepository;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
+
 import java.util.Date;
 import java.time.LocalDate;
 import java.util.List;
 
-/**
- * Created by jhe on 4/23/2018.
- */
+
+/*
+ This class contains the logic for calculating the commission for recruiters
+*/
+
+
 @Service
 public class CalculationServiceImpl implements CalculationService{
+	@Setter
 	@Autowired
 	private JpaRecruitmentTransactionRepository recruitmentTransactionRepository;
 
+	@Setter
 	@Autowired
 	private JpaCommissionRepository commissionRepository;
 
 	@Override
-	public double calculateCommission(long recruiterId) {
+	public double calculateCommission(final long recruiterId) {
 
 		final CalculationHelper calculationHelper = new CalculationHelper();
 		LocalDate today = LocalDate.now();
@@ -52,7 +58,7 @@ public class CalculationServiceImpl implements CalculationService{
 		return calculationHelper.getFinalAmount();
 	}
 
-	protected double calculatePayment(Commission commission, long count) {
+	private double calculatePayment(final Commission commission, final long count) {
 		// calculate payment
 		double result = commission.getUnitPaymentAmount() * count;
 		long multiple = count / commission.getGroupNos();

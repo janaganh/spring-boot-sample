@@ -1,7 +1,6 @@
 package com.jan.recruitment.interfaces.facade.internal;
 
 import com.jan.recruitment.domain.model.Personal;
-import com.jan.recruitment.domain.model.Recruiter;
 import com.jan.recruitment.interfaces.facade.dto.PersonalDto;
 
 import java.util.List;
