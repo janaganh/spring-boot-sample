@@ -6,6 +6,7 @@ apply plugin: 'base'
 apply plugin: 'com.moowork.node'
 
 node {
+  version = '6.2.1'
   download = true
 }
 
