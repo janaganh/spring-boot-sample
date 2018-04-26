@@ -59,7 +59,7 @@ flyway {
 	password = 'cnguser'
 }
 
-task frontendBuild(type: Exec, dependsOn: 'web:prod_build'){}
+task frontendBuild(dependsOn: 'web:prod_build'){}
 
 bootJar {
 	baseName = 'recruiment-boot-docker'
